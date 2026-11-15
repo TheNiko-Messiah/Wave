@@ -1,0 +1,107 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MyApp.Views.MainView">
+
+	<TabControl>
+		<!-- ЭКРАН 1: КЛИЕНТЫ -->
+		<TabItem Header="Клиенты">
+			<ScrollViewer>
+				<Grid RowDefinitions="Auto, Auto, Auto" Margin="10">
+					<TextBlock Text="Список клиентов" FontWeight="Bold" Margin="0,0,0,10"/>
+
+					<ListBox x:Name="ClientsList" Grid.Row="1" MaxHeight="250" HorizontalAlignment="Stretch" SelectionChanged="ClientsList_SelectionChanged">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+
+					<StackPanel Grid.Row="2" Margin="0,10,0,0" Spacing="5">
+						<TextBox x:Name="ClientNameBox" Watermark="ФИО клиента" MinHeight="40" />
+						<TextBox x:Name="ClientPhoneBox" Watermark="Телефон" MinHeight="40" />
+						<CheckBox x:Name="ClientIsRegularCheck" Content="Постоянный клиент" MinHeight="40" />
+
+						<StackPanel Spacing="10">
+							<Button x:Name="AddClientBtn" Content="Добавить" Click="AddClientBtn_Click" MinHeight="40" HorizontalAlignment="Stretch" />
+							<Button x:Name="UpdateClientBtn" Content="Сохранить" Click="UpdateClientBtn_Click" MinHeight="40" HorizontalAlignment="Stretch" />
+							<Button x:Name="DeleteClientBtn" Content="Удалить" Click="DeleteClientBtn_Click" MinHeight="40" HorizontalAlignment="Stretch" />
+						</StackPanel>
+
+						<TextBlock x:Name="ClientMessage" Foreground="Red" TextWrapping="Wrap" />
+					</StackPanel>
+				</Grid>
+			</ScrollViewer>
+		</TabItem>
+
+		<!-- ЭКРАН 2: СНАРЯЖЕНИЕ -->
+		<TabItem Header="Снаряжение">
+			<ScrollViewer>
+				<Grid RowDefinitions="Auto, Auto, Auto" Margin="10">
+					<TextBlock Text="Список снаряжения" FontWeight="Bold" Margin="0,0,0,10"/>
+
+					<ListBox x:Name="ItemsList" Grid.Row="1" MaxHeight="250" HorizontalAlignment="Stretch">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+
+					<StackPanel Grid.Row="2" Margin="0,10,0,0" Spacing="5">
+						<TextBox x:Name="ItemNameBox" Watermark="Название" MinHeight="40" />
+						<TextBox x:Name="ItemSizeBox" Watermark="Размер" MinHeight="40" />
+						<TextBox x:Name="ItemBuoyancyBox" Watermark="Плавучесть (число 1-5)" MinHeight="40" />
+
+						<StackPanel Spacing="10">
+							<Button x:Name="AddItemBtn" Content="Добавить" Click="AddItemBtn_Click" MinHeight="40" HorizontalAlignment="Stretch" />
+							<Button x:Name="DeleteItemBtn" Content="Удалить" Click="DeleteItemBtn_Click" MinHeight="40" HorizontalAlignment="Stretch" />
+						</StackPanel>
+
+						<TextBlock x:Name="ItemMessage" Foreground="Red" TextWrapping="Wrap" />
+					</StackPanel>
+				</Grid>
+			</ScrollViewer>
+		</TabItem>
+
+		<!-- ЭКРАН 3: АРЕНДЫ -->
+		<TabItem Header="Аренды">
+			<ScrollViewer>
+				<Grid RowDefinitions="Auto, Auto, Auto" Margin="10">
+					<TextBlock Text="История аренд" FontWeight="Bold" Margin="0,0,0,10"/>
+
+					<ListBox x:Name="RentalsList" Grid.Row="1" MaxHeight="250" HorizontalAlignment="Stretch">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+
+					<StackPanel Grid.Row="2" Margin="0,10,0,0" Spacing="5">
+						<TextBlock Text="Клиент:"/>
+						<ComboBox x:Name="RentalClientCombo" HorizontalAlignment="Stretch" MinHeight="40" />
+
+						<TextBlock Text="Снаряжение:"/>
+						<ComboBox x:Name="RentalItemCombo" HorizontalAlignment="Stretch" MinHeight="40" />
+
+						<TextBlock Text="Дата начала:"/>
+						<CalendarDatePicker x:Name="RentalStartDatePicker" HorizontalAlignment="Stretch" MinHeight="40" />
+
+						<TextBlock Text="Дата окончания:"/>
+						<CalendarDatePicker x:Name="RentalEndDatePicker" HorizontalAlignment="Stretch" MinHeight="40" />
+
+						<TextBox x:Name="RentalPriceBox" Watermark="Сумма (руб.)" MinHeight="40" />
+
+						<StackPanel Spacing="10">
+							<Button x:Name="AddRentalBtn" Content="Добавить" Click="AddRentalBtn_Click" MinHeight="40" HorizontalAlignment="Stretch" />
+							<Button x:Name="DeleteRentalBtn" Content="Удалить" Click="DeleteRentalBtn_Click" MinHeight="40" HorizontalAlignment="Stretch" />
+						</StackPanel>
+
+						<TextBlock x:Name="RentalMessage" Foreground="Red" TextWrapping="Wrap" />
+					</StackPanel>
+				</Grid>
+			</ScrollViewer>
+		</TabItem>
+	</TabControl>
+</UserControl>

@@ -1,0 +1,22 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="using:MyApp.Data.Models"
+             x:Class="MyApp.App"
+             RequestedThemeVariant="Default">
+
+	<Application.DataTemplates>
+		<DataTemplate DataType="models:Client">
+			<TextBlock Text="{Binding}" />
+		</DataTemplate>
+		<DataTemplate DataType="models:Item">
+			<TextBlock Text="{Binding}" />
+		</DataTemplate>
+		<DataTemplate DataType="models:Rental">
+			<TextBlock Text="{Binding}" />
+		</DataTemplate>
+	</Application.DataTemplates>
+
+	<Application.Styles>
+		<FluentTheme />
+	</Application.Styles>
+</Application>
